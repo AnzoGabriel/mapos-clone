@@ -77,4 +77,7 @@ RUN mkdir -p /var/log/supervisor
 # Supervisor config file
 COPY ./supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+COPY php.ini /usr/local/etc/php/conf.d/custom-php.ini
+COPY uploads.ini /usr/local/etc/php/conf.d/uploads.ini
+
 CMD ["/usr/bin/supervisord"]
