@@ -1,6 +1,6 @@
 <?php
 
-ini_set('max_execution_time', 1000); //300 seconds
+ini_set('max_execution_time', 300); //300 seconds
 
 $settings_file = __DIR__ . DIRECTORY_SEPARATOR . 'settings.json';
 
@@ -33,6 +33,9 @@ if (! empty($_POST)) {
         echo json_encode(['success' => false, 'message' => 'Por favor insira um email válido.']);
         exit();
     }
+
+    echo json_encode(['success' => false, 'message' => "Chegou aqui antes do DB"]);
+    exit();
 
     //check for valid database connection
     try {
