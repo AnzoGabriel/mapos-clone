@@ -34,12 +34,13 @@ if (! empty($_POST)) {
         exit();
     }
 
-    echo json_encode(['success' => false, 'message' => "Chegou aqui antes do DB"]);
-    exit();
 
     //check for valid database connection
     try {
         $mysqli = @new mysqli($host, $dbuser, $dbpassword, $dbname);
+
+    echo json_encode(['success' => false, 'message' => "Passou pelo mysqli"]);
+    exit();
 
         if (mysqli_connect_errno()) {
             echo json_encode(['success' => false, 'message' => $mysqli->connect_error]);
