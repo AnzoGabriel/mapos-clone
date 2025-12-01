@@ -87,6 +87,8 @@ if (! empty($_POST)) {
     $env_file = file_get_contents($env_file_path);
 
 
+
+
     // set the database config file
     $env_file = str_replace('enter_db_hostname', $host, $env_file);
     $env_file = str_replace('enter_db_username', $dbuser, $env_file);
@@ -112,6 +114,5 @@ if (! empty($_POST)) {
     } else {
         echo json_encode(['success' => false, 'message' => 'Erro ao criar arquivo env.']);
     }
-
     exit();
 }
