@@ -82,11 +82,10 @@ if (! empty($_POST)) {
     $mysqli->close();
     // database created
 
-    echo json_encode(['success' => false, 'message' => 'Chegou aqui depois de criar o banco de dados.']);
-    exit();
 
     $env_file_path = '..' . DIRECTORY_SEPARATOR . 'application' . DIRECTORY_SEPARATOR . '.env.example';
     $env_file = file_get_contents($env_file_path);
+
 
     // set the database config file
     $env_file = str_replace('enter_db_hostname', $host, $env_file);
@@ -106,6 +105,9 @@ if (! empty($_POST)) {
 
     // set the environment = production
     $env_file = str_replace('pre_installation', 'production', $env_file);
+
+    echo json_encode(['success' => false, 'message' => 'set the database config file']);
+    exit();
 
     if (file_put_contents('..' . DIRECTORY_SEPARATOR . 'application' . DIRECTORY_SEPARATOR . '.env', $env_file)) {
         echo json_encode(['success' => true, 'message' => 'Instalação bem sucedida.']);
