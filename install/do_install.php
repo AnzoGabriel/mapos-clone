@@ -109,12 +109,8 @@ if (! empty($_POST)) {
 
     if (file_put_contents('..' . DIRECTORY_SEPARATOR . 'application' . DIRECTORY_SEPARATOR . '.env', $env_file)) {
         echo json_encode(['success' => true, 'message' => 'Instalação bem sucedida.']);
-    echo json_encode(['success' => false, 'message' => 'Instalação bem sucedida.']);
-        exit();
     } else {
         echo json_encode(['success' => false, 'message' => 'Erro ao criar arquivo env.']);
-    echo json_encode(['success' => false, 'message' => 'Erro ao criar arquivo env.']);
-    exit();
     }
 
     exit();
