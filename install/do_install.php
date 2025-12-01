@@ -39,9 +39,6 @@ if (! empty($_POST)) {
     try {
         $mysqli = @new mysqli($host, $dbuser, $dbpassword, $dbname);
 
-    echo json_encode(['success' => false, 'message' => "Passou pelo mysqli"]);
-    exit();
-
         if (mysqli_connect_errno()) {
             echo json_encode(['success' => false, 'message' => $mysqli->connect_error]);
             exit();
@@ -84,6 +81,9 @@ if (! empty($_POST)) {
     } while (mysqli_more_results($mysqli) && mysqli_next_result($mysqli));
     $mysqli->close();
     // database created
+
+    echo json_encode(['success' => false, 'message' => 'Chegou aqui depois de criar o banco de dados.']);
+    exit();
 
     $env_file_path = '..' . DIRECTORY_SEPARATOR . 'application' . DIRECTORY_SEPARATOR . '.env.example';
     $env_file = file_get_contents($env_file_path);
